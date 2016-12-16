@@ -22,6 +22,8 @@ class HomeController extends Controller {
   public function index(Request $request) {
     $products = Product::orderBy('id', 'DESC')
       ->paginate(5);
+    //echo '<pre>';
+    //print_R(compact('products'));die;
     return view('home', compact('products'))
       ->with('i', ($request->input('page', 1) - 1) * 5);
   }

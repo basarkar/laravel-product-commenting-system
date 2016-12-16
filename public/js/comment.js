@@ -44,10 +44,10 @@
                     $(err_class).attr("tabindex", -1).focus();
                 }
                 $('#comment-submit-button').prop('disabled', false);
+                $('#comment-area').val('');
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert('Sorry, there\'s been an error connecting. Please try again later.');
-                alert(errorThrown);
                 $('#comment-submit-button').prop('disabled', false);
             }
         });

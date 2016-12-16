@@ -48,7 +48,7 @@ class ProductController extends Controller {
     $this->validate($request, [
       'name' => 'required',
       'desc' => 'required',
-      'price' => 'required',
+      'price' => 'required|numeric|min:0.1',
     ]);
     $data = $request->all();
     $data['uid'] = Auth::id();
@@ -117,6 +117,7 @@ class ProductController extends Controller {
     $this->validate($request, [
       'name' => 'required',
       'desc' => 'required',
+      'price' => 'required|numeric|min:0.1',
     ]);
     $data = array(
       'name' => $request->get('name'),
