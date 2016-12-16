@@ -136,7 +136,9 @@ class ProductController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function destroy($id) {
-    Product::where('uid', Auth::id())->where('id', $id)->delete();
+    if (Product::where('uid', Auth::id())->where('id', $id)->delete()) {
+      Comment::where('product_id', $id)->delete();
+    }
     return redirect()->route('product.index')
       ->with('success', 'Product deleted successfully');
   }
