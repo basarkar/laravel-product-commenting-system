@@ -37,21 +37,21 @@
             </div>
         </div>
         {!! Form::close() !!}
-        @if (!empty($comments))
-            <div id="comment">
-                @foreach ($comments as $comment)
-                    <div class="row">
-                        <div class="col-lg-12 margin-tb">
-                            <div class="pull-left" style="margin-right:10px;">
-                                <b>{{ $comment->name}}</b>
-                            </div>
-                            <div class="pull-left">
-                                {{ $comment->comment}}
-                            </div>
+        <div id="comment">
+        @if ($comments->count())
+            @foreach ($comments as $comment)
+                <div class="row">
+                    <div class="col-lg-12 margin-tb">
+                        <div class="pull-left" style="margin-right:10px;">
+                            <b>{{ $comment->name}}</b>
+                        </div>
+                        <div class="pull-left">
+                            {{ $comment->comment}}
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         @endif
+        </div>
         <script type="text/javascript" src="{{ URL::asset('js/comment.js') }}"></script>
 @endsection

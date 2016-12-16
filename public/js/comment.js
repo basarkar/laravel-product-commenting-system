@@ -19,7 +19,7 @@
             dataType: 'json',
             crossDomain: true,
             data: postData,
-            url: action + '?format=json',
+            url: action,
             processData: false,
             contentType: false,
             xhrFields: {
