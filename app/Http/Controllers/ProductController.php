@@ -72,7 +72,7 @@ class ProductController extends Controller {
     return json_encode(array(
       'success' => TRUE,
       'username' => Auth::user()->name,
-      'comment' => $data['comment'],
+      'comment' => htmlentities($data['comment']),
     ));
   }
 
